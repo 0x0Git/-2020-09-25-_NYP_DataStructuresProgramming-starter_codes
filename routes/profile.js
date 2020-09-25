@@ -12,12 +12,19 @@ router.get('/editProfile/:id', ensureAuthenticated, (req,res)=>{
             id:req.params.id
         }
     }).then((user)=>{
-        if (req.user.id === user.id){
+        if(!user){
+            console.log('not found!');
+            alertMessage(res, 'danger', 'Unauthorised access.', 'fas fa exclamation-circle', true);
+            res.redirect('/');
+        }
+        else if (req.user.id === user.id){
+            console.log('found!');
             res.render('profile/editProfile',{
                 user
             });
 
         }else{
+            console.log('not found!');
             alertMessage(res, 'danger', 'Unauthorised access.', 'fas fa exclamation-circle', true);
             res.redirect('/');
         }
