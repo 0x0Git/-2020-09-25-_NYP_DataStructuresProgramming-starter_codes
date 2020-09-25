@@ -1,0 +1,112 @@
+<!--.col-	.col-sm-	.col-md-	.col-lg-	.col-xl- -->
+
+
+<div class="container">
+
+	{{#if food}}
+	<div class="card card-body">
+		<h3 class="text-primary">All Food Entries</h3>
+
+
+		{{#each food}}
+
+		<div class="card border-primary mb-2 w-100 mx-auto">
+
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-sm-4 col-md-4 col-lg-3">
+						<p class="font-italic">Food Entry</p>
+						<p class="text-info">
+							{{Entry}}
+						</p>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-3">
+						<p class="font-italic">Date Of Entry</p>
+						<p class="text-info">
+							<!-- {{DateOfEntry}} -->
+							{{formatDate DateOfEntry 'DD MMM YYYY'}}
+						</p>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-3">
+						<p class="font-italic">Meal Type</p>
+						<p class="text-info">
+							{{MealType}}
+						</p>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-2">
+						<p class="font-italic">Cuisine</p>
+						<p class="text-info">{{replaceCommas Cuisine}}</p>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-2">
+						<p class="font-italic">Mood</p>
+						<p class="text-info">{{Mood}}</p>
+					</div>
+					{{!-- <div class="col-sm-12 col-md-12 col-lg-2">
+						<p class="font-italic"></p>
+						<a href="" class="card-link">
+							<i class="fas fa-pencil-alt"></i>
+							Edit
+						</a>
+						<a href="" class="card-link" data-toggle="confirmation" data-title="Confirm delete?">
+							<i class="far fa-trash-alt"></i>
+							Delete
+						</a>
+					</div> --}}
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-3">
+						<p class="font-italic">Dining Place</p>
+						<p class="text-info">
+							{{DiningPlace}}
+						</p>
+					</div>
+					<div class="col-sm-12 col-md-12 col-lg-3">
+						<p class="font-italic">Calories</p>
+						<p class="text-info">
+							{{Calories}}
+						</p>
+					</div>
+
+					<div class="col-sm-12 col-md-12 col-lg-2">
+						<p class="font-italic"></p>
+						<a href="/food/edit/{{id}}" class="card-link">
+							<i class="fas fa-pencil-alt"></i>
+							Edit
+						</a>
+						<a href="/food/delete/{{id}}" class="card-link" data-toggle="confirmation" data-title="Confirm delete?">
+							<i class="far fa-trash-alt"></i>
+							Delete
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+			<div class="accordion" id="storyAccordion{{id}}">
+				<div class="card-header" id="headingOne{{id}}">
+					<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{id}}"
+						aria-expanded="false" aria-controls="collapseOne{{id}}">
+						Food Entry Details<i class="fas fa-chevron-down"></i>
+					</button>
+
+				</div>
+
+				<div id="collapseOne{{id}}" class="collapse" aria-labelledby="headingOne{{id}}" data-parent="#storyAccordion{{id}}">
+					<div class="card-body">
+						{{Entry}}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+
+</div>
+{{else}}
+<h3>No Food Entries</h3>
+{{/if}}

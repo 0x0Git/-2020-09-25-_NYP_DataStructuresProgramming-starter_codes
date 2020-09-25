@@ -1,0 +1,45 @@
+<!--.col-	.col-sm-	.col-md-	.col-lg-	.col-xl- -->
+<div class="container">
+	<div class="card card-body">
+		<h3>Edit Profile</h3>
+		<form action="/profile/saveProfile/{{user.id}}?_method=PUT" method="post" id="addVideo">
+	
+			{{!-- <div class="form-group mb-4">
+				<label class="font-italic" for="entry">Journal Entry</label>
+				<textarea class="form-control" id="entry" name="entry" rows="10"></textarea>
+			</div> --}}
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">Weight</label>
+						<br>
+						<input type="text" id="weight" name="weight" value="{{user.weight}}"/>
+					</div>
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">Height</label>
+						<br>
+						<input type="text" id="height" name="height" value="{{user.height}}"/>
+					</div>
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">BMI</label>
+						<br>
+						<input type="text" id="bmi" name="bmi" disabled value="{{user.bmi}}"/>
+					</div>
+				</div>
+			</div>
+
+			<br>
+			<button id="btnEditProfile" type="submit" class="btn btn-primary">Save
+			</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	$('#datepicker').datepicker({
+		value: new Date().toLocaleDateString(),
+		format: 'dd/mm/yyyy',
+		uiLibrary: 'bootstrap4',
+	});
+</script>

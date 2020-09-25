@@ -1,0 +1,147 @@
+<!--.col-	.col-sm-	.col-md-	.col-lg-	.col-xl- -->
+<div class="container">
+	<div class="card card-body">
+		<h3>Add a Food Journal</h3>
+		<form action="" method="post" id="addVideo">
+	
+			<div class="form-group mb-4">
+				<label class="font-italic" for="entry">Journal Entry</label>
+				<textarea class="form-control" id="entry" name="entry" rows="10"></textarea>
+			</div>
+
+			<div class="form-group">
+				<div class="row mb-2">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+						<label class="font-italic">Date</label>
+						<input id="datepicker" width="200" name="dateOfEntry" readonly/>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+						<label class="font-italic">Cuisine</label>
+						<br>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="chineseFood" value="Chinese" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')">
+							<label class="form-check-label" for="chineseFood">Chinese</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="americanFood" value="American" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')" checked>
+							<label class="form-check-label" for="americanFood">American</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="koreanFood" value="Korean" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')">
+							<label class="form-check-label" for="koreanFood">Korean</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="japFood" value="Japanese" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')">
+							<label class="form-check-label" for="japFood">Japanese</label>
+						</div>
+
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="malayFood" value="Malay" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')">
+							<label class="form-check-label" for="malayFood">Malay</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="indianFood" value="Indian" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')">
+							<label class="form-check-label" for="indianFood">Indian</label>
+						</div>
+								<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" name="cuisine" id="otherFood" value="Other" onclick="ensureOneCheck('cuisine', 'cuisineErr', 'btnAddFood')">
+							<label class="form-check-label" for="otherFood">Others</label>
+						</div>
+						<p class="font-weight-bold text-info" id="cuisineErr" style="display:none">Please select one
+							cuisine</p>
+		
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">Dinning Place</label>
+						<br>
+						<input type="text" id="diningPlace" name="diningPlace"/>
+					</div>
+
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">Meal Type</label>
+						<br>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Breakfast" value="Breakfast" name="mealtype" checked>
+							<label class="form-check-label" for="Breakfast">Breakfast</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Brunch" value="Brunch" name="mealtype">
+							<label class="form-check-label" for="Brunch">Brunch</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Lunch" value="Lunch" name="mealtype">
+							<label class="form-check-label" for="Lunch">Lunch</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Tea" value="Tea" name="mealtype">
+							<label class="form-check-label" for="Tea">Tea</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Dinner" value="Dinner" name="mealtype">
+							<label class="form-check-label" for="Dinner">Dinner</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Supper" value="Supper" name="mealtype">
+							<label class="form-check-label" for="Supper">Supper</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">Calories</label>
+						<br>
+						<input type="text" id="calories" name="calories"/>
+					</div>
+
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="font-italic">Mood</label>
+						<br>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Happy" value="Happy" name="mood" checked>
+							<label class="form-check-label" for="Happy">Happy</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Sad" value="Sad" name="mood">
+							<label class="form-check-label" for="Sad">Sad</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Angry" value="Angry" name="mood">
+							<label class="form-check-label" for="Angry">Angry</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Tense" value="Tense" name="mood">
+							<label class="form-check-label" for="Tense">Tense</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="Calm" value="Calm" name="mood">
+							<label class="form-check-label" for="Calm">Calm</label>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+
+			<br>
+			<button id="btnAddFood" type="submit" class="btn btn-primary">Save
+			</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	$('#datepicker').datepicker({
+		value: new Date().toLocaleDateString(),
+		format: 'dd/mm/yyyy',
+		uiLibrary: 'bootstrap4',
+	});
+</script>
