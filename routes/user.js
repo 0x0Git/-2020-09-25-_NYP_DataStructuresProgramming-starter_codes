@@ -73,12 +73,13 @@ router.post('/user/register', (req, res) => {
     checkSpecial = "0"
 
     var lower = "abcdefghijklmnopqrstuvwxyz";
-    var upper = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var special = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
 
     for(i = 0; i < lower.length;i++){
         if(password.indexOf(lower[i]) > -1){
             checkLower = "1"
+            console.log(checkLower)
             //return true
         }
     }
@@ -97,7 +98,7 @@ router.post('/user/register', (req, res) => {
         }
     }
 
-    if (checkLower == "0" || checkLower == "0" || checkLower == "0"){
+    if (checkLower == "0" || checkUpper == "0" || checkSpecial == "0"){
         errors.push({text: 'Password does not meet complexity. Passwords must be at least 8 characters. Includes lower, upper case, and special characters.'})
     }
 
