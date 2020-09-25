@@ -155,49 +155,4 @@ router.get('/delete/:id', ensureAuthenticated, (req, res)=>{
     }).catch(err=>console.log(err));
 });
 
-// router.post('/search', ensureAuthenticated, (req, res)=>{
-//     let Entry = req.body.entry;
-//     let DateOfEntry = moment(req.body.dateOfEntry, 'DD/MM/YYYY');
-//     let Cuisine = req.body.cuisine.toString();
-//     let DiningPlace = req.body.diningPlace;
-//     let MealType = req.body.mealtype;
-//     let Calories = req.body.calories;
-//     let Mood = req.body.mood;
-//     let userId = req.user.id;
-
-//     Food.create({
-//         Entry,
-//         DateOfEntry,
-//         Cuisine,
-//         DiningPlace,
-//         MealType,
-//         Calories,
-//         Mood,
-//         userId
-//     })
-//     .then((food) =>{
-//         res.redirect('/food/listFood');
-//     })
-//     .catch(err=>console.log(err))
-// });
-
-router.get('/searchFood', (req, res)=>{
-    Food.findAll({
-        where:{
-            Cuisine: {
-                //$like: Cuisine.like
-                $like: req.cuisine.like
-            }
-        },
-        order:[
-            ['id','ASC']
-        ],
-        raw:true
-    })
-    .then((food)=> {
-        res.render('food/listFood',{food:food});
-    })
-    .catch(err=>console.log(err));
-});
-
 module.exports = router;
